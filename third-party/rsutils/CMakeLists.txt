@@ -3,11 +3,10 @@
 cmake_minimum_required(VERSION 3.10)  # source_group(TREE)
 project( rsutils )
 
-add_library( ${PROJECT_NAME} STATIC "" )
-# We cannot directly interface with nlohmann_json (doesn't work on bionic)
-#target_link_libraries( ${PROJECT_NAME} PUBLIC nlohmann_json )
-target_compile_features( ${PROJECT_NAME} PUBLIC cxx_std_14 )
+add_library( ${PROJECT_NAME} SHARED "" )
 set_target_properties( ${PROJECT_NAME} PROPERTIES FOLDER Library )
+set_target_properties( ${PROJECT_NAME} PROPERTIES VERSION "${REALSENSE_VERSION_STRING}" SOVERSION "${REALSENSE_VERSION_MAJOR}.${REALSENSE_VERSION_MINOR}" )
+target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_11)
 
 target_include_directories( ${PROJECT_NAME}
     PUBLIC
