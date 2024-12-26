@@ -24,13 +24,14 @@ endif()
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-add_library(${PROJECT_NAME} STATIC
+add_library(${PROJECT_NAME} SHARED
     ${AllSources}
     ${HEADER_FILES_ROSBAG}
     ${SOURCE_FILES_ROSBAG}
     ${SOURCE_FILES_COMPRESSION}
 )
 
+set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${REALSENSE_VERSION_STRING} SOVERSION "${REALSENSE_VERSION_MAJOR}.${REALSENSE_VERSION_MINOR}")
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_11)
 
 target_include_directories(${PROJECT_NAME} PRIVATE
