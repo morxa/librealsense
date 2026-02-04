@@ -6,7 +6,7 @@ project( rsutils )
 add_library( ${PROJECT_NAME} SHARED "" )
 set_target_properties( ${PROJECT_NAME} PROPERTIES FOLDER Library )
 set_target_properties( ${PROJECT_NAME} PROPERTIES VERSION "${REALSENSE_VERSION_STRING}" SOVERSION "${REALSENSE_VERSION_MAJOR}.${REALSENSE_VERSION_MINOR}" )
-target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_11)
+target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_14)
 
 target_include_directories( ${PROJECT_NAME}
     PUBLIC
